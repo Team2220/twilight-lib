@@ -1,4 +1,4 @@
-package twilight.lib.limelight;
+package org.team2220.twilight.lib.limelight;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
