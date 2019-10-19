@@ -16,17 +16,8 @@ repositories {
 ```groovy
 dependencies {
     ...
-    implementation('com.github.Team2220:twilight-lib:master-SNAPSHOT') {
-        changing = true
-    }
+    implementation 'com.github.Team2220:twilight-lib:<exact tag name of library release>'
 }
 ```
 
-3. The third step is to **add** the following code snippet to the `build.gradle` file. A good place to put this is in between the repositories and dependencies code blocks.
-```groovy
-configurations.all {
-    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
-}
-```
-
-One final note: every time you build your robot code, this repository will refresh. If changes are found, it will be redownloaded into your project. So, any changes that occur in the library will be downloaded on build time. This may seem inconvenient. However, once build season rolls around the library should be largely perfected and not change often.
+One final note: each time we make a significant change in the library, after it is tested, it will need to be "released" as a version on GitHub and then rewritten into the `dependencies` code block.
