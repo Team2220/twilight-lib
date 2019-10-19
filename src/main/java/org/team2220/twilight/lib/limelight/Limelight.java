@@ -39,8 +39,6 @@ public class Limelight extends Subsystem {
         // Default command to run when subsystem isn't being used by another command.
         this.defaultCommand = defaultCommand;
 
-        int i = 30; // Test line of code to test jitpack
-
         // Configure Limelight States to default when subsystem is initialized.
         setLEDMode(LEDMode.USE_PIPELINE);
         setCameraMode(CameraMode.VISION_PROCESSING);
