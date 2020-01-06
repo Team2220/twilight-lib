@@ -2,8 +2,8 @@ package org.team2220.twilight.lib.limelight;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
  * Limelight (vision processer or high FOV driver camera) subsystem. Contains
@@ -17,13 +17,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * @author Reece
  * @see {@link http://docs.limelightvision.io/en/latest/}
  */
-public class Limelight extends Subsystem {
+public class Limelight extends SubsystemBase {
 
     // Limelight's network tables.
     private final NetworkTable limelight;
-
-    // Limelight default command
-    private final Command defaultCommand;
 
     /**
      * Constructs and initializes a Limelight subsystem.
@@ -32,12 +29,9 @@ public class Limelight extends Subsystem {
      *                         the Limelight configuration web page. This allows for
      *                         multiple Limelights per robot.
      */
-    public Limelight(String networkTableName, Command defaultCommand) {
+    public Limelight(String networkTableName) {
         // Initialize limelight instance variable described above.
         limelight = NetworkTableInstance.getDefault().getTable(networkTableName);
-
-        // Default command to run when subsystem isn't being used by another command.
-        this.defaultCommand = defaultCommand;
 
         // Configure Limelight States to default when subsystem is initialized.
         setLEDMode(LEDMode.USE_PIPELINE);
@@ -180,11 +174,10 @@ public class Limelight extends Subsystem {
     }
 
     /**
-     * Implemented method that sets the subsystem's default command.
+     * Method to set the default command of this Limelight subsytem.
      */
-    @Override
-    protected void initDefaultCommand() {
-        setDefaultCommand(defaultCommand);
+    public void setDefaultCommand(Command command) {
+        super.setDefaultCommand(command);
     }
 
     /* Limelight State Enums */
