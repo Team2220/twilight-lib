@@ -1,5 +1,5 @@
 plugins {
-    id 'java-library'
+    id 'java'
     id "edu.wpi.first.GradleRIO" version "2020.1.2"
 }
 
@@ -8,6 +8,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.google.guava:guava:28.0-jre'
+
     implementation wpi.deps.wpilib()
     implementation wpi.deps.vendor.java()
 
