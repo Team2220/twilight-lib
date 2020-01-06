@@ -5,11 +5,10 @@ plugins {
 
 repositories {
     jcenter()
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
-    implementation 'com.google.guava:guava:28.0-jre'
-
     implementation wpi.deps.wpilib()
     implementation wpi.deps.vendor.java()
 
