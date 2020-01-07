@@ -1,9 +1,2 @@
-pluginManagement {
-    repositories {
-        mavenLocal()
-        gradlePluginPortal()
-    }
-}
-
 // Set gradle project name
 rootProject.name = 'twilight-lib'
